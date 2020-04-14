@@ -4,7 +4,10 @@ initially setup the github
 2. gen key
     ssh-keygen -t rsa -b 4096 -C "yasir.nss@gmail.com"
     name the file then copy .pub then add deploy key
-3.
+3. git init
+4. git add *
+5. git remote add origin git@github.com:YaserNSS/vuespa.git
+6. git pull origin master --rebase
 
 
 
