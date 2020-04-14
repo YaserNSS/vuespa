@@ -1,0 +1,12 @@
+composer create-project --prefer-dist laravel/laravel blog "5.8.*"
+initially setup the github
+1. create repository in github
+2. gen key
+    ssh-keygen -t rsa -b 4096 -C "yasir.nss@gmail.com"
+    name the file then copy .pub then add deploy key
+3.
+
+
+
+lec 1
+npm install
