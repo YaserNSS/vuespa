@@ -7,9 +7,37 @@ initially setup the github
 3. git init
 4. git add *
 5. git remote add origin git@github.com:YaserNSS/vuespa.git
-6. git pull origin master --rebase
+6. git commit -m "prepare github"
+7. git push -u origin master
 
+then
+git add *
+git commit -m "prepare github"
+git push -u origin master
 
 
 lec 1
 npm install
+npm install admin-lte@v3.0.0-alpha.2 --save
+connect to DB
+in  AppServiceProvider.php
+    use Illuminate\Support\Facades\Schema;
+
+    public function boot()
+    {
+        Schema::defaultStringLength(191);
+    }
+
+php artisan migrate
+php artisan make:auth
+
+create new file in master in view
+work in master file
+change home file to layout.master
+
+in bootstrap.js add
+    require('admin-lte');
+in app.scss
+   @import '~admin-lte/dist/css/adminlte.css';
+npm run watch
+
