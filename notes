@@ -104,5 +104,13 @@ add color for active link
     background-color:#3f51b5;
     color: #fff !important;
 }
-
+################### Lec 9 ####################
+create users component
+register route
+    {path:'/users', component: require('./components/Users.vue').default},
+add link in master
+                <router-link to="/users" class="nav-link active">
+                  <i class="fas fa-users nav-icon"></i>
+                  <p>Users</p>
+                </router-link>
 
