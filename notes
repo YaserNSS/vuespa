@@ -15,8 +15,11 @@ git add *
 git commit -m "prepare github"
 git push -u origin master
 
+in case error
+ git pull origin master --rebase
 
-lec 1
+
+################### Lec 1 ####################
 npm install
 npm install admin-lte@v3.0.0-alpha.2 --save
 connect to DB
@@ -41,3 +44,14 @@ in app.scss
    @import '~admin-lte/dist/css/adminlte.css';
 npm run watch
 
+################### Lec 2 ####################
+npm install @fortawesome/fontawesome-free
+in app.css file add below
+//font awsome
+$fa-font-path: "../webfonts";
+//font awsome
+@import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';
+@import '~@fortawesome/fontawesome-free/scss/solid.scss';
+@import '~@fortawesome/fontawesome-free/scss/brands.scss';
+
+then work in master fontaswome icons
