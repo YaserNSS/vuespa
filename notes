@@ -55,3 +55,40 @@ $fa-font-path: "../webfonts";
 @import '~@fortawesome/fontawesome-free/scss/brands.scss';
 
 then work in master fontaswome icons
+
+################### Lec 5 ####################
+npm install vue-router
+in master view
+            <router-view></router-view>
+in app.js
+//importing vue route
+import VueRouter from 'vue-router';
+Vue.use(VueRouter);
+
+let routes = [
+    {path:'/dashboard', component: require('./components/Dashboard.vue').default},
+    {path:'/profile', component: require('./components/Profile.vue').default}
+
+]
+
+const router = new VueRouter({
+    mode: 'history',
+    routes
+});
+
+const app = new Vue({
+    el: '#app',
+    router
+});
+
+in master add links as
+            <router-link to="/profile" class="nav-link">
+                <i class="nav-icon fas fa-user text-warning"></i>
+                <p>
+                    Profile
+                </p>
+            </router-link>
+
+
+################### Lec 6 ####################
+

@@ -79,7 +79,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </router-link>
         </li>
 
-        @can('isAdmin')
           <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-cog text-success"></i>
@@ -95,25 +94,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <p>Users</p>
                 </router-link>
               </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Inactive Page</p>
-                </a>
-              </li>
+
             </ul>
           </li>
-
-
-          <li class="nav-item">
-                <router-link to="/profile" class="nav-link">
-                    <i class="nav-icon fas fa-user text-warning"></i>
-                    <p>
-                        Developer
-                    </p>
-                </router-link>
-        </li>
-          @endcan
 
         <li class="nav-item">
             <router-link to="/profile" class="nav-link">
@@ -152,6 +135,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Main content -->
     <div class="content">
       <div class="container-fluid">
+
+        <router-view></router-view>
 
       </div><!-- /.container-fluid -->
     </div>
