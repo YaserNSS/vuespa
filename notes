@@ -116,6 +116,29 @@ add link in master
 
 ################### Lec 10 ####################
 work only in  users component as table check github
+################### Lec 11 ####################
+npm i axios vform
+in app.js
+import { Form, HasError, AlertError } from 'vform';
+window.Form = Form;
+Vue.component(HasError.name, HasError)
+Vue.component(AlertError.name, AlertError)
+in user component
+        data() {
+            return {
+                form: new Form({
+                    id:'',
+                    name : '',
+                    email: '',
+                    password: '',
+                    type: '',
+                    bio: '',
+                    photo: ''
+                })
+            }
+        },
+
+################### Lec 12 ####################
 
 
 
