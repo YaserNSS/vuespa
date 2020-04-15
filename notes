@@ -230,6 +230,23 @@ then apply it in user vue
                         <td>{{user.type | upText}}</td>
                         <td>{{user.created_at | myDate}}</td>
 ################### Lec 17 ####################
+add progress bar
+npm install vue-progressbar --save
+add in app.js
+import VueProgressBar from 'vue-progressbar'
+Vue.use(VueProgressBar, {
+    color: 'rgb(143, 255, 199)',
+    failedColor: 'red',
+    height: '3px'
+  });
+in master template
+ <vue-progress-bar></vue-progress-bar>
+in user vue
+                this.$Progress.start();
+                this.form.post('api/user');
+                this.$Progress.finish();
+################### Lec 18 ####################
+
 
 
 

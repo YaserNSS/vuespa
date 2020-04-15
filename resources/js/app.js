@@ -30,7 +30,18 @@ const router = new VueRouter({
     routes
 });
 
+// progress bar
+import VueProgressBar from 'vue-progressbar'
+Vue.use(VueProgressBar, {
+    color: 'rgb(143, 255, 199)',
+    failedColor: 'red',
+    height: '3px'
+  });
 
+
+
+
+//filter
 Vue.filter('upText',function(text){
     //return text.charAt(0).toUpperCase() + value.slice(1);
     return text.charAt(0).toUpperCase() + text.slice(1)
