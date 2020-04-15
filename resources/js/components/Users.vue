@@ -26,20 +26,20 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr >
+                    <tr v-for="user in users.data" :key="user.id">
 
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>{{user.id}}</td>
+                        <td>{{user.name}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.type}}</td>
+                        <td>{{user.created_at}}</td>
 
                         <td>
-                            <a href="#" >
+                            <a href="#" @click="editModal(user)">
                                 <i class="fa fa-edit blue"></i>
                             </a>
                             /
-                            <a href="#" >
+                            <a href="#" @click="deleteUser(user.id)">
                                 <i class="fa fa-trash red"></i>
                             </a>
 
@@ -116,6 +116,8 @@
     export default {
         data() {
             return {
+                editmode: false,
+                users : {},
                 form: new Form({
                     id:'',
                     name : '',
@@ -128,9 +130,15 @@
             }
         },
        methods:{
+            loadUsers(){
+                axios.get("api/user").then(({ data }) => (this.users = data));
+            },
             createUser(){
-            this.form.post('api/user');
+                this.form.post('api/user');
             }
+        },
+        created() {
+            this.loadUsers();
         }
     }
 </script>

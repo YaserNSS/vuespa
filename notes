@@ -181,9 +181,38 @@ in user model
             'password' => 'required|string|min:6'
         ]);
 ################### Lec 15 ####################
+in user controller
+return User::latest()->paginate(2);
+in user vue
+       methods:{
+            loadUsers(){
+                axios.get("api/user").then(({ data }) => (this.users = data));
+            },
+         created() {
+            this.loadUsers();
+        }
+in table
 
+                    <tr v-for="user in users.data" :key="user.id">
 
+                        <td>{{user.id}}</td>
+                        <td>{{user.name}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.type | upText}}</td>
+                        <td>{{user.created_at | myDate}}</td>
 
+                        <td>
+                            <a href="#" @click="editModal(user)">
+                                <i class="fa fa-edit blue"></i>
+                            </a>
+                            /
+                            <a href="#" @click="deleteUser(user.id)">
+                                <i class="fa fa-trash red"></i>
+                            </a>
+
+                        </td>
+                    </tr>
+################### Lec 16 ####################
 
 
 
