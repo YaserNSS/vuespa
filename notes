@@ -213,7 +213,23 @@ in table
                         </td>
                     </tr>
 ################### Lec 16 ####################
+Filters in app.js
+Vue.filter('upText',function(text){
+    //return text.charAt(0).toUpperCase() + value.slice(1);
+    return text.charAt(0).toUpperCase() + text.slice(1)
+});
 
+install moment npm
+npm install moment --save
+then in app.js
+ import moment from 'moment';
+Vue.filter('myDate',function(created){
+    return moment(created).format('MMMM Do YYYY');
+});
+then apply it in user vue
+                        <td>{{user.type | upText}}</td>
+                        <td>{{user.created_at | myDate}}</td>
+################### Lec 17 ####################
 
 
 
