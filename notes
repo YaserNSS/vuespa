@@ -151,7 +151,30 @@ then add route in api.php
 Route::apiResources(['user' => 'API\UserController']);
 
 ################### Lec 13 ####################
+in User Controller
+    public function store(Request $request)
+    {
+        $this->validate($request,[
+            'name' => 'required|string|max:191',
+            'email' => 'required|string|email|max:191|unique:users',
+            'password' => 'required|string|min:6'
+        ]);
 
+        return User::create([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'type' => $request['type'],
+            'bio' => $request['bio'],
+            'photo' => $request['photo'],
+            'password' => Hash::make($request['password']),
+        ]);
+    }
+in user model
+    protected $fillable = [
+        'name', 'email', 'password', 'bio', 'photo', 'type'
+    ];
+
+ ################### Lec 14 ####################
 
 
 
