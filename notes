@@ -139,6 +139,19 @@ in user component
         },
 
 ################### Lec 12 ####################
+add form
+then create user function
+        createUser(){
+            this.form.post('api/user')
+       }
+
+create user api controller
+php artisan make:controller API/UserController --api
+then add route in api.php
+Route::apiResources(['user' => 'API\UserController']);
+
+################### Lec 13 ####################
+
 
 
 
