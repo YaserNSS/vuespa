@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div class="row mt-4">
+        <div class="row mt-4" v-if="$gate.isAdminOrAuthor()">
           <div class="col-12">
             <div class="card">
               <div class="card-header">
@@ -194,7 +194,9 @@
                     })
             },
             loadUsers(){
-                axios.get("api/user").then(({ data }) => (this.users = data));
+                if(this.$gate.isAdminOrAuthor()){
+                    axios.get("api/user").then(({ data }) => (this.users = data));
+                }
             },
             createUser(){
                         this.$Progress.start();
