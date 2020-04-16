@@ -246,7 +246,35 @@ in user vue
                 this.form.post('api/user');
                 this.$Progress.finish();
 ################### Lec 18 ####################
+npm install sweetalert2 --save
+in app.js
 
+import swal from 'sweetalert2'
+window.swal = swal;
+const toast = swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 3000
+});
+window.toast = toast;
+window.Fire =  new Vue();
 
+in user vue
+                        this.$Progress.start();
+                        this.form.post('api/user')
+                        .then(()=>{
+                            Fire.$emit('AfterCreate');
+                            $('#addNew').modal('hide')
+                            toast({
+                                type: 'success',
+                                title: 'User Created in successfully'
+                                })
+                            this.$Progress.finish();
+                        })
+                        .catch(()=>{
+                        })
+
+################### Lec 22 ####################
 
 

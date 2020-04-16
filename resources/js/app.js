@@ -38,7 +38,20 @@ Vue.use(VueProgressBar, {
     height: '3px'
   });
 
+// sweet alert
+import swal from 'sweetalert2'
+window.swal = swal;
 
+const toast = swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 3000
+});
+
+window.toast = toast;
+//event
+window.Fire =  new Vue();
 
 
 //filter
