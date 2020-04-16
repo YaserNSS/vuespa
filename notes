@@ -307,3 +307,36 @@ in user vue
                     })
             },
  in controller
+    public function destroy($id)
+    {
+        $user = User::findOrFail($id);
+        // delete the user
+        $user->delete();
+        return ['message' => 'User Deleted'];
+    }
+################### Lec 23 ####################
+in vue user
+<button class="btn btn-success" @click="newModal">Add New <i class="fas fa-user-plus fa-fw"></i></button>
+            newModal(){
+                this.editmode = false;
+                this.form.reset();
+                $('#addNew').modal('show');
+            },
+
+<a href="#" @click="editModal(user)">
+    <i class="fa fa-edit blue"></i>
+</a>
+
+editModal(user){
+    this.editmode = true;
+    this.form.reset();
+    $('#addNew').modal('show');
+    this.form.fill(user);
+},
+newModal(){
+    this.editmode = false;
+    this.form.reset();
+    $('#addNew').modal('show');
+},
+
+################### Lec 24 ####################
