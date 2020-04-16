@@ -339,4 +339,34 @@ newModal(){
     $('#addNew').modal('show');
 },
 
-################### Lec 24 ####################
+################### Lec 25 ####################
+            updateUser(){
+                this.$Progress.start();
+                // console.log('Editing data');
+                this.form.put('api/user/'+this.form.id)
+                .then(() => {
+                    // success
+                    $('#addNew').modal('hide');
+                     swal.fire(
+                        'Updated!',
+                        'Information has been updated.',
+                        'success'
+                        )
+                        this.$Progress.finish();
+                         Fire.$emit('AfterCreate');
+                })
+                .catch(() => {
+                    this.$Progress.fail();
+                });
+            },
+in controller
+        $user = User::findOrFail($id);
+        $this->validate($request,[
+            'name' => 'required|string|max:191',
+            'email' => 'required|string|email|max:191|unique:users,email,'.$user->id,
+            'password' => 'sometimes|min:6'
+        ]);
+        $user->update($request->all());
+        return ['message' => 'Updated the user info'];
+
+################### Lec 26 ####################
