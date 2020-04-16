@@ -396,3 +396,12 @@ in master view
         @can('isAdmin')
         @endcan
 ################### Lec 43 ####################
+ACL from backend part 2
+limit from controller side
+    public function destroy($id)
+    {
+
+        $this->authorize('isAdmin');
+
+    }
+################### Lec 44 ####################
