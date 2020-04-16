@@ -369,4 +369,30 @@ in controller
         $user->update($request->all());
         return ['message' => 'Updated the user info'];
 
-################### Lec 26 ####################
+################### Lec 42 ####################
+ACL from backend part 1
+in AuthServiceProvider
+use Illuminate\Support\Facades\Gate;
+    public function boot()
+    {
+        $this->registerPolicies();
+        Gate::define('isAdmin',function($user){
+            return $user->type === 'admin';
+        });
+        Gate::define('isAuthor',function($user){
+            return $user->type === 'author';
+        });
+        Gate::define('isUser',function($user){
+            return $user->type === 'user';
+        });
+
+
+        //
+    }
+
+then in database add type filed in user table
+then
+in master view
+        @can('isAdmin')
+        @endcan
+################### Lec 43 ####################
